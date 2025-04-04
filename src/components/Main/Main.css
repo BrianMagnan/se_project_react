@@ -1,0 +1,24 @@
+/* .cards { */
+/* border-radius: 12px; */
+/* } */
+
+.cards__text {
+  position: relative;
+  display: flex;
+  top: 15px;
+}
+
+.cards__list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  gap: 21px;
+  /* padding: 20px 0; */
+  /* width: 1360px; */
+}
+
+/* @media screen and (max-width: px) {
+
+} */
