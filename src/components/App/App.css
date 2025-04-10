@@ -1,9 +1,23 @@
 .page {
+  font-family: "Cabinet Grotesk", sans-serif;
+
   background-color: #f3f3f3;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .page__content {
   max-width: 1360px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 40px;
+}
+
+/* RESPONSIVE STYLES------------------------------- */
+
+@media screen and (max-width: 750px) {
+  .page__content {
+    margin: 0 auto;
+    padding: 0 16px;
+  }
 }

@@ -11,32 +11,54 @@
   visibility: hidden;
 }
 
+.modal__content {
+  background-color: #fff;
+  position: relative;
+  border-radius: 20px;
+  border: 1px solid #0000004d;
+  max-width: 440px;
+  max-height: 436px;
+  width: 100%;
+  padding: 28px 28px 36px;
+}
+
 .modal_opened {
   visibility: visible;
 }
 
 .modal__title {
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 16px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  margin: 0 0 12px;
 }
 
 .modal__close {
+  background-size: contain;
+
+  color: #000000;
+  border: none;
   position: absolute;
   top: 20px;
   right: 28px;
   background-color: transparent;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  cursor: pointer;
 }
 
-.modal__content {
-  background-color: #fff;
-  position: relative;
-  border-radius: 8px;
-  padding: 28px 28px 36px;
-  width: 100%;
-  max-width: 496px;
-  height: 436px;
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+.modal__close-form {
+  background-image: url(../../assets/Close-grey.svg);
+}
+
+.modal__label {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  height: 52px;
+  margin: 12px 0;
 }
 
 .modal__form {
@@ -46,12 +68,91 @@
 }
 
 .modal__input {
+  color: #000000;
+  opacity: 0.8;
   display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid black;
+  margin-top: 8px;
+  padding: 0;
+}
+
+.modal__legend {
+  position: relative;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 8px;
 }
 
 .modal__radio-buttons {
+  color: #000000;
   display: flex;
   flex-direction: column;
   border: none;
-  margin-bottom: 16px;
+  margin-top: 12px;
+
+  margin-bottom: 32px;
+  padding: 0;
+}
+
+.modal__radio-input:checked {
+  accent-color: #000000;
+  opacity: 1;
+}
+
+.modal__label_type_radio {
+  margin: 4px 0;
+  opacity: 0.5;
+
+  display: flex;
+  gap: 8px;
+  height: 20px;
+}
+.modal__label_type_radio:has(.modal__radio-input:checked) {
+  opacity: 1;
+}
+
+.modal__submit {
+  border: none;
+  width: 124px;
+  height: 36px;
+  border-radius: 4px;
+  padding: 8px 16px;
+  gap: 8px;
+  /* background: #000000; */
+  background: #0000004d;
+
+  color: #ffffff;
+}
+
+/* .modal__submit:hover {
+  background: #00000099;
+
+  color: #ffffff;
+} */
+
+/* .modal__submit:disabled {
+  background: #0000004d;
+  color: #ffffff;
+  cursor: not-allowed;
+} */
+
+/* RESPONSIVE STYLES------------------------------- */
+
+@media screen and (max-width: 750px) {
+  .modal__content {
+    width: 375px;
+    height: 455px;
+  }
+
+  .modal__close {
+    background-image: url(../../assets/Close-Black.svg);
+  }
+
+  .modal__submit {
+    width: 100%;
+    height: 36px;
+  }
 }
