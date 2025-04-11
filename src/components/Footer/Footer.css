@@ -1,12 +1,5 @@
 .footer {
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 20px;
-
-  vertical-align: bottom;
-
   margin-top: auto;
-  width: 100%;
   padding: 20px 0;
 }
 
@@ -18,4 +11,12 @@
   margin: 0 auto;
   padding: 0 40px;
   position: relative;
+}
+
+/* RESPONSIVE STYLES------------------------------- */
+
+@media screen and (max-width: 750px) {
+  .footer__container {
+    padding: 0 16px;
+  }
 }

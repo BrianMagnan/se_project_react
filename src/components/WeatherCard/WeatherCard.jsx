@@ -2,17 +2,6 @@ import "./WeatherCard.css";
 import { weatherOptions, defaultWeatherOptions } from "../utils/constants";
 
 function WeatherCard({ weatherData }) {
-  // if (!weatherData) {
-  //   return (
-  //     <div className="weather-card weather-card--error">
-  //       {" "}
-  //       <p className="weather-card__error">
-  //         Weather data is not available
-  //       </p>{" "}
-  //     </div>
-  //   );
-  // }
-
   const filteredOptions = weatherOptions.filter((option) => {
     return (
       weatherData?.isDay !== undefined &&

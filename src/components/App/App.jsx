@@ -37,7 +37,7 @@ function App() {
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);
       })
-      .catch(console.err);
+      .catch(console.error);
   }, []);
 
   return (
