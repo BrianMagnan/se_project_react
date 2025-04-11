@@ -1,4 +1,4 @@
-import WeatherCard from "../WeatherCard/WeatherCard";
+import WeatherCard from "../components/WeatherCard/WeatherCard";
 
 export const getWeather = ({ latitude, longitude }, APIkey) => {
   return fetch(
