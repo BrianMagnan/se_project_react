@@ -1,8 +1,9 @@
 .header {
+  font-size: 20px;
+
   color: #000000;
   background-color: transparent;
 
-  font-weight: 700;
   display: flex;
   align-items: center;
   padding: 12px 0 12px;
@@ -14,19 +15,22 @@
 }
 
 .header__date-and-location {
+  font-family: "cabinet-grotesk", sans-serif;
+
   position: relative;
-  font-size: 20px;
   line-height: 24px;
   margin: 0;
   top: 7px;
 }
 
 .header__add-clothes-btn {
+  font-family: Cabinet Grotesk;
+  font-size: 20px;
+  line-height: 24px;
   background-color: transparent;
 
-  font-weight: 700;
-  margin: 14px 20px 0 auto;
-  width: 116px;
+  margin: 15px 20px 0 auto;
+  /* width: 116px; */
   height: 24px;
   border: none;
 }
@@ -54,7 +58,6 @@
   } */
 
   /* .header__date-and-location {
-    font-size: 16px;
     line-height: 20px;
     top: 4px;
   } */
@@ -63,12 +66,10 @@
     margin: 14px 10px 0 auto;
     width: 100px;
     height: 20px;
-    font-size: 16px;
     line-height: 20px;
   } */
 
   /* .header__username {
-    font-size: 16px;
     line-height: 20px;
     margin: 14px auto auto;
   } */

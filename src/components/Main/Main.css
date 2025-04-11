@@ -6,8 +6,8 @@
 }
 
 .cards__text {
+  font-family: "Cabinet Grotesk";
   font-weight: 700;
-  font-size: 20px;
   line-height: 100%;
 
   position: relative;
@@ -35,7 +35,7 @@
     position: relative;
     justify-content: center;
 
-    margin: 32px auto 0;
+    margin: 32px auto 20px;
     padding: 0;
   }
 

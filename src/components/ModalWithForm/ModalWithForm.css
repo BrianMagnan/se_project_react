@@ -27,8 +27,6 @@
 }
 
 .modal__title {
-  font-weight: 700;
-  font-size: 16px;
   line-height: 20px;
   letter-spacing: 0%;
   margin: 0 0 12px;
@@ -54,8 +52,6 @@
 }
 
 .modal__label {
-  font-weight: 700;
-  font-size: 16px;
   line-height: 20px;
   height: 52px;
   margin: 12px 0;
@@ -80,8 +76,7 @@
 
 .modal__legend {
   position: relative;
-  font-weight: 700;
-  font-size: 16px;
+
   line-height: 20px;
   margin-bottom: 8px;
 }
