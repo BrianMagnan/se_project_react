@@ -1,28 +1,32 @@
 import { useEffect } from "react";
 
-export const useModalClose = (isOpen, onClose) => {
-  // Handle ESC key
+function useModalClose(isOpen, onClose) {
   useEffect(() => {
-    const handleEscClose = (e) => {
+    if (!isOpen) return;
+
+    //CLOSE WITH ESCAPE BUTTON
+    const handleEscape = (e) => {
       if (e.key === "Escape") {
         onClose();
       }
     };
 
-    if (isOpen) {
-      document.addEventListener("keydown", handleEscClose);
-    }
+    //CLOSE BY CLICKING OUTSIDE MODAL
+    const handleOverlay = (e) => {
+      if (e.target.classList.contains("modal")) {
+        onClose();
+      }
+    };
 
-    return () => document.removeEventListener("keydown", handleEscClose);
+    document.addEventListener("keydown", handleEscape);
+    document.addEventListener("mousedown", handleOverlay);
+
+    // REMOVE LISTENERS
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+      document.removeEventListener("mousedown", handleOverlay);
+    };
   }, [isOpen, onClose]);
+}
 
-  // Return modal handlers
-  return {
-    modalProps: {
-      onClick: onClose,
-    },
-    contentProps: {
-      onClick: (e) => e.stopPropagation(),
-    },
-  };
-};
+export default useModalClose;

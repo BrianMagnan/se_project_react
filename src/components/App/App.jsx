@@ -38,7 +38,7 @@ function App() {
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);
       })
-      .catch(console.err);
+      .catch(console.error);
   }, []);
 
   return (
@@ -50,7 +50,7 @@ function App() {
       <ModalWithForm
         title="New garment"
         buttonText="Add garment"
-        activeModal={activeModal}
+        isOpen={activeModal === "add-garment"}
         onClose={closeActiveModal}
       >
         <label htmlFor="name" className="modal__label">
@@ -75,7 +75,12 @@ function App() {
           <legend className="modal__legend">Select the weather type:</legend>
 
           <label htmlFor="hot" className="modal__label modal__label_type_radio">
-            <input id="hot" type="radio" className="modal__radio-input"></input>
+            <input
+              id="hot"
+              type="radio"
+              className="modal__radio-input"
+              name="temp"
+            ></input>
             Hot
           </label>
 
@@ -87,6 +92,7 @@ function App() {
               id="warm"
               type="radio"
               className="modal__radio-input"
+              name="temp"
             ></input>
             Warm
           </label>
@@ -99,6 +105,7 @@ function App() {
               id="cold"
               type="radio"
               className="modal__radio-input"
+              name="temp"
             ></input>
             Cold
           </label>
