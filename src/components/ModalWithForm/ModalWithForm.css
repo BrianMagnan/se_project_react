@@ -34,8 +34,6 @@
 
 .modal__close {
   background-size: contain;
-
-  color: #000000;
   border: none;
   position: absolute;
   top: 20px;

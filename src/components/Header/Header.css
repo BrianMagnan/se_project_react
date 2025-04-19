@@ -10,6 +10,19 @@
   margin: 0;
 }
 
+.header__left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.header__right {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  gap: 20px;
+}
+
 .header__logo {
   margin-right: 24px;
 }
@@ -29,20 +42,19 @@
   line-height: 24px;
   background-color: transparent;
 
-  margin: 15px 20px 0 auto;
-  /* width: 116px; */
   height: 24px;
   border: none;
+}
+
+.header__profile-link {
+  color: #000000;
+  text-decoration: none;
 }
 
 .header__user-container {
   display: flex;
   align-items: center;
   gap: 12px;
-}
-
-.header__username {
-  margin: 14px 0 0;
 }
 
 /* RESPONSIVE STYLES------------------------------- */

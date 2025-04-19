@@ -1,0 +1,27 @@
+.ClothesSection {
+  position: relative;
+  left: 116px;
+}
+
+.ClothesSection__header {
+  display: flex;
+  font-family: Cabinet Grotesk;
+  align-items: center;
+  height: 25px;
+  margin: 63px auto 16px;
+  gap: 20px;
+}
+
+.ClothesSection__title {
+  margin: 0;
+  font-size: 20px;
+}
+
+.ClothesSection__add {
+  background: none;
+  color: #00000099;
+  padding: 0;
+  height: 25px;
+  border: none;
+  font-size: 20px;
+}

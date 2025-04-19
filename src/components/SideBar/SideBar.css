@@ -1,0 +1,14 @@
+.sidebar {
+  display: flex;
+  font-family: Cabinet Grotesk;
+  width: 229px;
+  height: 56px;
+  margin: 47px 0;
+  align-items: center;
+}
+
+.sidebar__profile-name {
+  font-size: 20px;
+  margin: 0 auto;
+  padding: 0;
+}

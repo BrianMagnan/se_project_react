@@ -1,7 +1,14 @@
 import "./ModalWithForm.css";
 import useModalClose from "../../hooks/useModalClose";
 
-function ModalWithForm({ children, buttonText, title, isOpen, onClose }) {
+function ModalWithForm({
+  children,
+  buttonText,
+  title,
+  isOpen,
+  onClose,
+  onSubmit,
+}) {
   useModalClose(isOpen, onClose);
 
   return (
@@ -13,7 +20,8 @@ function ModalWithForm({ children, buttonText, title, isOpen, onClose }) {
           type="button"
           className="modal__close modal__close-form"
         />
-        <form className="modal__form">
+
+        <form className="modal__form" onSubmit={onSubmit}>
           {children}
           <button type="submit" className="modal__submit">
             {buttonText}
