@@ -1,9 +1,9 @@
 .sidebar {
   display: flex;
   font-family: Cabinet Grotesk;
-  width: 229px;
+  min-width: 229px;
   height: 56px;
-  margin: 47px 0;
+  margin: 47px 97px 0 0;
   align-items: center;
 }
 

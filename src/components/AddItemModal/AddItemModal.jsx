@@ -8,19 +8,52 @@ export default function AddItemModal({
   onAddItemModalSubmit,
 }) {
   const [name, setName] = useState("");
+  const [isNameValid, setNameValid] = useState("false");
   const [imageUrl, setImageUrl] = useState("");
+  const [isUrlValid, setUrlValid] = useState("false");
   const [weather, setWeather] = useState("");
 
-  const handleNameChange = (e) => setName(e.target.value);
-  const handleImageUrlChange = (e) => setImageUrl(e.target.value);
-  const handleWeatherChange = (e) => setWeather(e.target.value);
+  const handleNameChange = (e) => {
+    const name = e.target.value;
+    setName(name);
+
+    if (name.length > 2 && name.length < 50) {
+      setNameValid(true);
+    } else setNameValid(false);
+  };
+
+  const handleImageUrlChange = (e) => {
+    const url = e.target.value;
+    setImageUrl(url);
+
+    if (url.length > 0) {
+      try {
+        new URL(url);
+        setUrlValid(url.startsWith("http://") || url.startsWith("https://"));
+      } catch (err) {
+        setUrlValid(false);
+      }
+    } else {
+      setUrlValid(true);
+    }
+  };
+
+  const handleWeatherChange = (e) => {
+    const weather = e.target.value;
+    setWeather(weather);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItemModalSubmit(name, imageUrl, weather);
-    setName("");
-    setImageUrl("");
-    setWeather("");
+    if (e.target.checkValidity()) {
+      setUrlValid("");
+      onAddItemModalSubmit(name, imageUrl, weather);
+      setName("");
+      setImageUrl("");
+      setWeather("");
+    } else {
+      setUrlValid(false);
+    }
   };
 
   return (
@@ -30,6 +63,7 @@ export default function AddItemModal({
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
+      disabled={!isNameValid || !isUrlValid || !weather}
     >
       <label htmlFor="name" className="modal__label">
         Name {""}
@@ -42,6 +76,13 @@ export default function AddItemModal({
           onChange={handleNameChange}
           required
         />
+        {name && !isNameValid && (
+          <span className="modal__error">
+            {name.length < 3
+              ? "Name must be at least 3 characters"
+              : "Name must be less than 50 characters"}
+          </span>
+        )}
       </label>
       <label htmlFor="imageUrl" className="modal__label">
         Image {""}
@@ -54,6 +95,11 @@ export default function AddItemModal({
           onChange={handleImageUrlChange}
           required
         />
+        {imageUrl && !isUrlValid && (
+          <span className="modal__error">
+            Please enter a valid URL starting with http:// or https://
+          </span>
+        )}
       </label>
       <fieldset className="modal__radio-buttons">
         <legend className="modal__legend">Select the weather type:</legend>
@@ -96,6 +142,9 @@ export default function AddItemModal({
           ></input>
           Cold
         </label>
+        {!weather && (
+          <span className="modal__error">Please select a weather type</span>
+        )}
       </fieldset>
     </ModalWithForm>
   );

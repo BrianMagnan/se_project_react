@@ -114,23 +114,22 @@
   border-radius: 4px;
   padding: 8px 16px;
   gap: 8px;
-  /* background: #000000; */
-  background: #0000004d;
+  background: #000000;
 
   color: #ffffff;
 }
 
-/* .modal__submit:hover {
+.modal__submit:hover {
   background: #00000099;
 
   color: #ffffff;
-} */
+}
 
-/* .modal__submit:disabled {
+.modal__submit:disabled {
   background: #0000004d;
   color: #ffffff;
   cursor: not-allowed;
-} */
+}
 
 /* RESPONSIVE STYLES------------------------------- */
 

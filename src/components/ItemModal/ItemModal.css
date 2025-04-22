@@ -21,6 +21,10 @@
 }
 
 .modal__footer {
+  font-family: Cabinet Grotesk;
+  font-style: normal;
+  font-size: 20px;
+
   margin-top: 24px;
   margin-left: 36px;
   font-weight: 700;
@@ -30,12 +34,26 @@
 .modal__caption {
   line-height: 20px;
   margin: 0 0 12px;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .modal__weather {
   display: flex;
   gap: 8px;
   margin: 0;
+}
+
+.modal__delete-item {
+  border: none;
+  background: none;
+  color: #ff4d00;
+  position: relative;
+  width: 101px;
+  height: 24px;
+  left: 330px;
+  bottom: 60px;
+  padding: 0;
 }
 
 /* RESPONSIVE STYLES------------------------------- */

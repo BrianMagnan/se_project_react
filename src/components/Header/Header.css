@@ -23,17 +23,13 @@
   gap: 20px;
 }
 
-.header__logo {
-  margin-right: 24px;
-}
-
 .header__date-and-location {
   font-family: "cabinet-grotesk", sans-serif;
 
   position: relative;
   line-height: 24px;
   margin: 0;
-  top: 7px;
+  top: 2px;
 }
 
 .header__add-clothes-btn {

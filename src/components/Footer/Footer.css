@@ -2,13 +2,15 @@
   font-family: "Cabinet Grotesk";
   margin-top: auto;
   padding: 20px 0;
+  position: relative;
+  opacity: 1;
+  background-color: transparent;
 }
 
 .footer__container {
   display: flex;
 
   justify-content: space-between;
-  max-width: 1360px;
   margin: 0 auto;
   padding: 0 40px;
   position: relative;
