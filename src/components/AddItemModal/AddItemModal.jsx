@@ -1,58 +1,26 @@
 import "./AddItemModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import { useState } from "react";
+import { useEffect } from "react";
+import { useFormAndValidation } from "../../hooks/useFormAndValidation";
 
 export default function AddItemModal({
+  activeModal,
   onClose,
-  isOpen,
   onAddItemModalSubmit,
 }) {
-  const [name, setName] = useState("");
-  const [isNameValid, setNameValid] = useState("false");
-  const [imageUrl, setImageUrl] = useState("");
-  const [isUrlValid, setUrlValid] = useState("false");
-  const [weather, setWeather] = useState("");
+  const { values, handleChange, errors, isValid, resetForm } =
+    useFormAndValidation();
 
-  const handleNameChange = (e) => {
-    const name = e.target.value;
-    setName(name);
-
-    if (name.length > 2 && name.length < 50) {
-      setNameValid(true);
-    } else setNameValid(false);
-  };
-
-  const handleImageUrlChange = (e) => {
-    const url = e.target.value;
-    setImageUrl(url);
-
-    if (url.length > 0) {
-      try {
-        new URL(url);
-        setUrlValid(url.startsWith("http://") || url.startsWith("https://"));
-      } catch (err) {
-        setUrlValid(false);
-      }
-    } else {
-      setUrlValid(true);
+  useEffect(() => {
+    if (!activeModal) {
+      resetForm();
     }
-  };
-
-  const handleWeatherChange = (e) => {
-    const weather = e.target.value;
-    setWeather(weather);
-  };
+  }, [activeModal, resetForm]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (e.target.checkValidity()) {
-      setUrlValid("");
-      onAddItemModalSubmit(name, imageUrl, weather);
-      setName("");
-      setImageUrl("");
-      setWeather("");
-    } else {
-      setUrlValid(false);
+    if (isValid) {
+      onAddItemModalSubmit(values.name, values.imageUrl, values.temp);
     }
   };
 
@@ -60,27 +28,28 @@ export default function AddItemModal({
     <ModalWithForm
       title="New garment"
       buttonText="Add garment"
-      isOpen={isOpen}
+      activeModal={activeModal}
       onClose={onClose}
       onSubmit={handleSubmit}
-      disabled={!isNameValid || !isUrlValid || !weather}
+      disabled={!isValid}
     >
       <label htmlFor="name" className="modal__label">
         Name {""}
         <input
           type="text"
+          maxLength={50}
           className="modal__input"
           id="name"
+          name="name"
+          aria-label="Enter garment name"
           placeholder="Name"
-          value={name}
-          onChange={handleNameChange}
+          value={values.name || ""}
+          onChange={handleChange}
           required
         />
-        {name && !isNameValid && (
-          <span className="modal__error">
-            {name.length < 3
-              ? "Name must be at least 3 characters"
-              : "Name must be less than 50 characters"}
+        {values.name && values.name.length < 3 && (
+          <span className="modal__error" id="name-error">
+            Name must be at least 3 characters
           </span>
         )}
       </label>
@@ -90,18 +59,23 @@ export default function AddItemModal({
           type="url"
           className="modal__input"
           id="imageUrl"
+          name="imageUrl"
+          aria-label="Enter image URL"
           placeholder="Image URL"
-          value={imageUrl}
-          onChange={handleImageUrlChange}
+          value={values.imageUrl || ""}
+          onChange={handleChange}
           required
         />
-        {imageUrl && !isUrlValid && (
+        {errors.imageUrl && (
           <span className="modal__error">
             Please enter a valid URL starting with http:// or https://
           </span>
         )}
       </label>
-      <fieldset className="modal__radio-buttons">
+      <fieldset
+        className="modal__radio-buttons"
+        aria-label="Weather type selection"
+      >
         <legend className="modal__legend">Select the weather type:</legend>
 
         <label htmlFor="hot" className="modal__label modal__label_type_radio">
@@ -111,8 +85,10 @@ export default function AddItemModal({
             className="modal__radio-input"
             name="temp"
             value="hot"
-            checked={weather === "hot"}
-            onChange={handleWeatherChange}
+            checked={values.temp === "hot"}
+            onChange={handleChange}
+            aria-label="Hot weather"
+            required
           ></input>
           Hot
         </label>
@@ -124,8 +100,10 @@ export default function AddItemModal({
             className="modal__radio-input"
             name="temp"
             value="warm"
-            checked={weather === "warm"}
-            onChange={handleWeatherChange}
+            checked={values.temp === "warm"}
+            onChange={handleChange}
+            aria-label="Warm weather"
+            required
           ></input>
           Warm
         </label>
@@ -137,13 +115,17 @@ export default function AddItemModal({
             className="modal__radio-input"
             name="temp"
             value="cold"
-            checked={weather === "cold"}
-            onChange={handleWeatherChange}
+            checked={values.temp === "cold"}
+            onChange={handleChange}
+            aria-label="Cold weather"
+            required
           ></input>
           Cold
         </label>
-        {!weather && (
-          <span className="modal__error">Please select a weather type</span>
+        {!values.temp && (
+          <span className="modal__error" role="alert">
+            Please select a weather type
+          </span>
         )}
       </fieldset>
     </ModalWithForm>

@@ -57,9 +57,9 @@ function App() {
     addItem(item)
       .then((newItem) => {
         setClothingItems((prevItems) => [newItem, ...prevItems]);
+        closeActiveModal();
       })
       .catch(console.error);
-    closeActiveModal();
   };
 
   const handleDeleteItem = (item) => {
@@ -124,7 +124,7 @@ function App() {
           </Routes>
         </div>
         <AddItemModal
-          isOpen={activeModal === "add-garment"}
+          activeModal={activeModal}
           onClose={closeActiveModal}
           onAddItemModalSubmit={handleAddItemModalSubmit}
         />

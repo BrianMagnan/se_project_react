@@ -5,15 +5,15 @@ function ModalWithForm({
   children,
   buttonText,
   title,
-  isOpen,
+  activeModal,
   onClose,
   onSubmit,
   disabled,
 }) {
-  useModalClose(isOpen, onClose);
+  useModalClose(activeModal, onClose);
 
   return (
-    <div className={`modal ${isOpen && "modal_opened"}`}>
+    <div className={`modal ${activeModal === "add-garment" && "modal_opened"}`}>
       <div className="modal__content">
         <h2 className="modal__title">{title}</h2>
         <button

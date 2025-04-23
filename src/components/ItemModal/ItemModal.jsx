@@ -3,12 +3,10 @@ import useModalClose from "../../hooks/useModalClose";
 import { useState } from "react";
 
 function ItemModal({ activeModal, onClose, card, handleDeleteClick }) {
-  const isOpen = activeModal === "preview";
-
-  useModalClose(isOpen, onClose);
+  useModalClose(activeModal, onClose);
 
   return (
-    <div className={`modal ${isOpen && "modal_opened"}`}>
+    <div className={`modal ${activeModal === "preview" && "modal_opened"}`}>
       <div className="modal__content_type_image">
         <button
           onClick={onClose}

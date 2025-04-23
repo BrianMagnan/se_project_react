@@ -2,12 +2,10 @@ import "./MessageModal.css";
 import useModalClose from "../../hooks/useModalClose";
 
 function MessageModal({ activeModal, onClose, card, handleDeleteItem }) {
-  const isOpen = activeModal === "message";
-
-  useModalClose(isOpen, onClose);
+  useModalClose(activeModal, onClose);
 
   return (
-    <div className={`modal ${isOpen && "modal_opened"}`}>
+    <div className={`modal ${activeModal === "message" && "modal_opened"}`}>
       <div className="modal__content modal__content_type_message">
         <button
           onClick={onClose}
