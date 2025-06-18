@@ -1,14 +1,18 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
+import React from "react";
+import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-
-import App from "./components/App/App.jsx";
+import App from "./components/App/App";
+import { CurrentUserProvider } from "./contexts/CurrentUserContext.jsx";
 import "./index.css";
 
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <BrowserRouter>
-      <App />
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <BrowserRouter
+      future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
+    >
+      <CurrentUserProvider>
+        <App />
+      </CurrentUserProvider>
     </BrowserRouter>
-  </StrictMode>
+  </React.StrictMode>
 );

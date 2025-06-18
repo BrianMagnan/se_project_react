@@ -1,0 +1,36 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  font-family: Cabinet Grotesk;
+  min-width: 229px;
+  height: 56px;
+  margin: 47px 97px 0 0;
+}
+.sidebar__header {
+  display: flex;
+  gap: 16px;
+
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.sidebar__avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid #00000080;
+  object-fit: cover;
+}
+
+.sidebar__profile-name {
+  font-size: 20px;
+  padding: 0;
+}
+
+.sidebar__button {
+  width: fit-content;
+  height: 25px;
+  border: none;
+  padding: 0;
+  margin-top: 8px;
+}

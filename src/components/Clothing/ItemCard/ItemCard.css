@@ -1,0 +1,80 @@
+.card {
+  position: relative;
+  max-width: 323px;
+  max-height: 323px;
+  display: flex;
+  justify-content: center;
+  border-radius: 19px;
+  border: 1px solid #0000004d;
+}
+
+.card__header {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.card__name {
+  font-family: "Cabinet Grotesk";
+  font-weight: 500;
+  line-height: 100%;
+  color: #00000099;
+  /* position: absolute; */
+  padding: 5px 12px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  border-color: #000000;
+  border-radius: 4px;
+  max-height: 24px;
+}
+
+.card__like-button {
+  /* position: absolute; */
+  /* top: 20px; */
+  /* right: 20px; */
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  background-image: url("../../../assets/like-button.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: opacity 0.3s ease;
+}
+
+.card__image {
+  width: 323px;
+  height: 323px;
+  border-radius: 19px;
+}
+
+.card__like-button:hover {
+  opacity: 0.8;
+}
+
+.card__like-button_active {
+  background-image: url("../../../assets/like-button-active.svg");
+}
+
+.card__like-button_hidden {
+  display: none;
+}
+
+/* RESPONSIVE STYLES------------------------------- */
+
+@media screen and (max-width: 750px) {
+  .card__name {
+    font-size: 16px;
+  }
+
+  .card__image {
+    max-width: 164px;
+    width: auto;
+    height: auto;
+  }
+}
