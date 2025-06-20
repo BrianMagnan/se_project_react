@@ -10,9 +10,11 @@ export default function ToggleSwitch() {
   return (
     <label className="toggle-switch">
       <input
+        id="temperature-toggle"
         type="checkbox"
         className="toggle-switch__checkbox"
         onChange={handleToggleSwitchChange}
+        aria-label="Toggle temperature unit between Fahrenheit and Celsius"
       />
       <span className="toggle-switch__circle"></span>
       <span

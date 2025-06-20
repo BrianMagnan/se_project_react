@@ -43,13 +43,13 @@ function EditProfileModal({
   return (
     <ModalWithForm
       title="Change profile data"
-      buttonText={isLoading ? "Saving..." : "Save changes"}
+      buttonText="Save changes"
       activeModal={activeModal === "edit-profile"}
       name="edit-profile"
       onClose={onClose}
       onSubmit={handleSubmit}
-      isLoading={isLoading}
-      disabled={!isValid || isLoading}
+      isLoading={isLoading?.profile}
+      disabled={!isValid || isLoading?.profile}
     >
       <div className="modal__form-content">
         {/* name */}
@@ -69,6 +69,7 @@ function EditProfileModal({
             placeholder="Name"
             value={values.name || ""}
             onChange={handleChange}
+            autoComplete="name"
             required
           />
         </label>
@@ -88,6 +89,7 @@ function EditProfileModal({
             placeholder="Avatar URL"
             value={values.avatar || ""}
             onChange={handleChange}
+            autoComplete="on"
             required
           />
         </label>

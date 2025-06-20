@@ -38,13 +38,13 @@ function LoginModal({
   return (
     <ModalWithForm
       title="Log in"
-      buttonText={isLoading ? "Logging in..." : "Log in"}
+      buttonText="Log in"
       linkText="or Sign Up"
       activeModal={activeModal === "login"}
       onClose={onClose}
       onSubmit={handleSubmit}
-      isLoading={isLoading}
-      disabled={!isValid || isLoading}
+      isLoading={isLoading?.profile}
+      disabled={!isValid || isLoading?.profile}
       onLinkClick={handleSignUpClick}
     >
       <div className="modal__form-content">
@@ -65,6 +65,7 @@ function LoginModal({
             placeholder="Email"
             value={values.email || ""}
             onChange={handleChange}
+            autoComplete="email"
             required
           />
         </label>
@@ -84,6 +85,7 @@ function LoginModal({
             placeholder="Password"
             value={values.password || ""}
             onChange={handleChange}
+            autoComplete="current-password"
             required
           />
         </label>

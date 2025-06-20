@@ -44,9 +44,11 @@ function Header({
         {isLoggedIn ? (
           <>
             <button
+              id="add-clothes-button"
               onClick={handleAddClick}
               type="button"
               className="header__add-clothes-btn"
+              aria-label="Add new clothing item"
             >
               + Add clothes
             </button>
@@ -73,16 +75,20 @@ function Header({
         ) : (
           <>
             <button
+              id="signup-button"
               onClick={handleSignUpClick}
               type="button"
               className="header__login-btn"
+              aria-label="Sign up for an account"
             >
               Sign Up
             </button>
             <button
+              id="login-button"
               onClick={handleLoginClick}
               type="button"
               className="header__login-btn"
+              aria-label="Log in to your account"
             >
               Log In
             </button>

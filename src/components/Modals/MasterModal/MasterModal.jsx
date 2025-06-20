@@ -17,6 +17,7 @@ export function MasterModal({
   closeActiveModal,
   selectedCard,
   handleLoginClick,
+  isLoading,
 }) {
   return (
     <div>
@@ -24,6 +25,7 @@ export function MasterModal({
         activeModal={activeModal}
         onClose={closeActiveModal}
         onAddItemModalSubmit={handleAddItemModalSubmit}
+        isLoading={isLoading}
       />
       <ItemModal
         activeModal={activeModal}
@@ -36,23 +38,27 @@ export function MasterModal({
         card={selectedCard}
         onClose={closeActiveModal}
         handleDeleteItem={handleDeleteItem}
+        isLoading={isLoading}
       />
       <LoginModal
         activeModal={activeModal}
         onClose={closeActiveModal}
         onUserLoginSubmit={handleLoginSubmit}
         handleSignUpClick={handleSignUpClick}
+        isLoading={isLoading}
       />
       <RegisterModal
         activeModal={activeModal}
         onClose={closeActiveModal}
         onUserRegisterSubmit={handleRegister}
         handleLoginClick={handleLoginClick}
+        isLoading={isLoading}
       />
       <EditProfileModal
         activeModal={activeModal}
         onClose={closeActiveModal}
         onUpdateProfile={handleUpdateProfile}
+        isLoading={isLoading}
       />
     </div>
   );

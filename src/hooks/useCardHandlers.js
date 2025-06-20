@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { addItemLike, removeItemLike } from "../utils/clothingApi";
 import { CurrentUserContext } from "../contexts/CurrentUserContext.js";
-import useModalOpen from "./useModalOpen";
+import useModal from "./useModal";
 
 export function useCardHandlers({ setClothingItems }) {
   const { isLoggedIn, currentUser } = useContext(CurrentUserContext);
-  const { handleLoginClick } = useModalOpen();
+  const { handleLoginClick } = useModal();
 
   const handleCardLike = (item) => {
     const token = localStorage.getItem("jwt");

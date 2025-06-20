@@ -39,14 +39,14 @@ function RegisterModal({
   return (
     <ModalWithForm
       title="Sign up"
-      buttonText={isLoading ? "Signing up..." : "Sign up"}
+      buttonText="Sign up"
       linkText={"or Log in"}
       activeModal={activeModal === "register"}
       name="register"
       onClose={onClose}
       onSubmit={handleSubmit}
-      isLoading={isLoading}
-      disabled={!isValid || isLoading}
+      isLoading={isLoading?.profile}
+      disabled={!isValid || isLoading?.profile}
       onLinkClick={handleLoginClick}
     >
       <div className="modal__form-content">
@@ -67,6 +67,7 @@ function RegisterModal({
             placeholder="Email"
             value={values.email || ""}
             onChange={handleChange}
+            autoComplete="email"
             required
           />
         </label>
@@ -86,6 +87,7 @@ function RegisterModal({
             placeholder="Password"
             value={values.password || ""}
             onChange={handleChange}
+            autoComplete="new-password"
             required
           />
         </label>
@@ -106,6 +108,7 @@ function RegisterModal({
             placeholder="Name"
             value={values.name || ""}
             onChange={handleChange}
+            autoComplete="name"
             required
           />
         </label>
@@ -125,6 +128,7 @@ function RegisterModal({
             placeholder="Avatar URL"
             value={values.avatar || ""}
             onChange={handleChange}
+            autoComplete="off"
             required
           />
         </label>

@@ -7,6 +7,7 @@ export default function AddItemModal({
   activeModal,
   onClose,
   onAddItemModalSubmit,
+  isLoading,
 }) {
   const {
     values,
@@ -38,6 +39,7 @@ export default function AddItemModal({
       onClose={onClose}
       onSubmit={handleSubmit}
       disabled={!isValid}
+      isLoading={isLoading?.profile}
     >
       {/* name */}
       <label htmlFor="add-name" className="modal__label">
@@ -55,6 +57,7 @@ export default function AddItemModal({
           placeholder="Name"
           value={values.name || ""}
           onChange={handleChange}
+          autoComplete="on"
           required
         />
       </label>
@@ -74,6 +77,7 @@ export default function AddItemModal({
           placeholder="Image URL"
           value={values.imageUrl || ""}
           onChange={handleChange}
+          autoComplete="on"
           required
         />
       </label>
@@ -96,6 +100,7 @@ export default function AddItemModal({
             checked={values.weather === "hot"}
             onChange={handleChange}
             aria-label="Hot weather"
+            autoComplete="off"
             required
           ></input>
           Hot
@@ -114,6 +119,7 @@ export default function AddItemModal({
             checked={values.weather === "warm"}
             onChange={handleChange}
             aria-label="Warm weather"
+            autoComplete="off"
             required
           ></input>
           Warm
@@ -132,6 +138,7 @@ export default function AddItemModal({
             checked={values.weather === "cold"}
             onChange={handleChange}
             aria-label="Cold weather"
+            autoComplete="off"
             required
           ></input>
           Cold

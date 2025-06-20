@@ -1,12 +1,6 @@
-const baseUrl = "http://localhost:3001";
+import { checkResponse } from "./clothingApi.js";
 
-// Helper function to check response
-function checkResponse(res) {
-  if (res.ok) {
-    return res.json();
-  }
-  return Promise.reject(`Error ${res.status}`);
-}
+const baseUrl = "http://localhost:3001";
 
 // Register new user
 function register({ name, avatar, email, password }) {

@@ -27,6 +27,7 @@ function SideBar({ onEditProfile }) {
         <h1 className="sidebar__profile-name">{currentUser?.name || "User"}</h1>
       </div>
       <button
+        id="edit-profile-button"
         onClick={onEditProfile}
         type="button"
         className="sidebar__button"
@@ -35,6 +36,7 @@ function SideBar({ onEditProfile }) {
         Change profile data
       </button>
       <button
+        id="logout-button"
         className="sidebar__button"
         onClick={handleLogout}
         type="button"

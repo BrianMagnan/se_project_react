@@ -18,7 +18,6 @@ export default function Profile({
   handleAddClick,
   onEditProfile,
   onCardLike,
-  weatherData = { weatherData },
   onDeleteItem,
   onAddItemModalSubmit,
   onUpdateProfile,
@@ -41,7 +40,6 @@ export default function Profile({
         handleCardClick={handleCardClick}
         handleAddClick={handleAddClick}
         onCardLike={onCardLike}
-        weatherData={weatherData}
         onDeleteItem={onDeleteItem}
         onAddItemModalSubmit={onAddItemModalSubmit}
         onUpdateProfile={onUpdateProfile}

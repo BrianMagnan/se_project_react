@@ -15,13 +15,12 @@ import Footer from "../Layout/Footer/Footer";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
 // Hooks
-import useModalOpen from "../../hooks/useModalOpen";
-import { useAuthHandlers } from "../../hooks/useAuthHandlers";
+import useModal from "../../hooks/useModal";
+import { useAuthHandlersConsolidated } from "../../hooks/useAuthHandlersConsolidated";
 import { useCardHandlers } from "../../hooks/useCardHandlers";
-import { useItemHandlers } from "../../hooks/useItemHandlers";
-import { useUIHandlers } from "../../hooks/useUIHandlers";
+import { useItemHandlersConsolidated } from "../../hooks/useItemHandlersConsolidated";
+import { useAppState } from "../../hooks/useAppState";
 import { useDataFetching } from "../../hooks/useDataFetching";
-import { useErrorHandling } from "../../hooks/useErrorHandling";
 
 // Styles
 import "./App.css";
@@ -37,7 +36,7 @@ function App() {
     handleCardClick,
     handleDeleteClick,
     closeActiveModal,
-  } = useModalOpen();
+  } = useModal();
 
   // ===== State Declarations =====
   const { error, setError } = useContext(CurrentUserContext);
@@ -60,8 +59,7 @@ function App() {
 
   // ===== Auth Handlers =====
   const { handleRegister, handleLoginSubmit, handleUpdateProfile } =
-    useAuthHandlers({
-      setIsLoading,
+    useAuthHandlersConsolidated({
       setError,
       closeActiveModal,
     });
@@ -72,19 +70,17 @@ function App() {
   });
 
   // ===== Item Handlers =====
-  const { handleAddItemModalSubmit, handleDeleteItem } = useItemHandlers({
-    setClothingItems,
-    closeActiveModal,
-  });
+  const { handleAddItemModalSubmit, handleDeleteItem } =
+    useItemHandlersConsolidated({
+      setClothingItems,
+      closeActiveModal,
+      setError,
+    });
 
-  // ===== UI Handlers =====
-  const { handleToggleSwitchChange } = useUIHandlers({
-    setCurrentTemperatureUnit,
-  });
-
-  // ===== Error Handling =====
-  const { handleErrorClose } = useErrorHandling({
+  // ===== App State (UI + Error Handling) =====
+  const { handleToggleSwitchChange, handleErrorClose } = useAppState({
     setError,
+    setCurrentTemperatureUnit,
   });
 
   // ===== Data Fetching =====
@@ -107,9 +103,11 @@ function App() {
           <div className="error-message">
             {error}
             <button
+              id="error-close-button"
               className="error-message__close"
               onClick={handleErrorClose}
               type="button"
+              aria-label="Close error message"
             >
               ×
             </button>
@@ -174,6 +172,7 @@ function App() {
             handleCardClick={handleCardClick}
             selectedCard={selectedCard}
             handleDeleteClick={handleDeleteClick}
+            isLoading={isLoading}
           />
           <Footer />
         </div>
