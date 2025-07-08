@@ -112,7 +112,7 @@ export const defaultClothingItems = [
 ];
 
 export const baseUrl =
-  process.env.NODE_ENV === "production"
+  import.meta.env.MODE === "production"
     ? "https://api.BrianWTWRProject.jumpingcrab.com"
     : "http://localhost:3001";
 
