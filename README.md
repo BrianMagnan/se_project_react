@@ -26,4 +26,13 @@ This is an application that shows the current weather and temperature based on l
 
 - [Figma Design](https://www.figma.com/file/F03bTb81Pw8IDPj5Y9rc5i/Sprint-10-%7C-WTWR)
 - [Weather API](https://api.openweathermap.org)
-- [Backend Repo] (https://github.com/BrianMagnan/se_project_express.git)
+- [Backend Repo](https://github.com/BrianMagnan/se_project_express.git)
+
+## Deployment
+
+The application is deployed and accessible at:
+
+- **Live Application**: https://BrianWTWRProject.jumpingcrab.com
+- **Backend API**: https://api.BrianWTWRProject.jumpingcrab.com
+
+The frontend is served via nginx with SSL encryption, and the backend API is running on a Google Cloud VM with PM2 process management.
