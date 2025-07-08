@@ -1,6 +1,5 @@
 import { checkResponse } from "./clothingApi.js";
-
-const baseUrl = "http://localhost:3001";
+import { baseUrl } from "./constants.js";
 
 // Register new user
 function register({ name, avatar, email, password }) {

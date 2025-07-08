@@ -3,11 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://BrianWTWRProject.jumpingcrab.com",
   "scripts": {
     "dev": "vite --open",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "npm run build && scp -r ./dist/* briannmagnan@BrianWTWRProject.jumpingcrab.com:/home/briannmagnan/frontend",
+    "deploy-prep": "npm run build && tar -czf frontend-build.tar.gz -C dist . && echo 'Build files ready in frontend-build.tar.gz'"
   },
   "dependencies": {
     "react": "^19.0.0",

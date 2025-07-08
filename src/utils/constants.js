@@ -111,6 +111,11 @@ export const defaultClothingItems = [
   },
 ];
 
+export const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://api.BrianWTWRProject.jumpingcrab.com"
+    : "http://localhost:3001";
+
 export const coordinates = {
   latitude: 40.7128,
   longitude: -74.006,
